@@ -1,0 +1,17 @@
+/* style notification succes or error */
+.notification {
+  font-weight: bold;
+  border: solid 1px gray;
+  border-radius: 8px;
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  left: 40px;
+  width: calc(100% - 80px);
+}
+.notification.success {
+  background-color: rgb(49, 211, 49);
+}
+.notification.error {
+  background-color: rgb(240, 94, 94);
+}
