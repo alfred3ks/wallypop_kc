@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/form.css">
+  <title>Creation product </title>
+</head>
+<body>
+  <header class="header">
+    <h1 class="title">
+      <a href="/">Wallypop</a>
+    </h1>
+  </header>
+  <!-- Aqui cargamos las notificaciones -->
+  <div id="notifications"></div>
+  <!-- Aqui cargamos el loader -->
+  <div id="loader"></div>
+  <div class="container">
+    <h2>Producto</h2>
+    <form id="login">
+      <div>
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" required name="nombre" />
+      </div>
+      <div>
+        <label for="nombre">Precio: </label>
+        <input type="number" id="precio" required name="precio" />
+      </div>
+      <div>
+        <label for="tipoProducto">Tipo de producto:</label>
+        <select id="tipoProducto" name="tipoProducto" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="compra">Compra</option>
+          <option value="venta">Venta</option>
+        </select>
+      </div>
+      <div>
+        <label for="imagen">Selecciona una imagen:</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+      </div>
+      <div>
+        <label for="imagen">Descripción:</label>
+        <textarea name="" id="" cols="30" rows="10" required></textarea>
+      </div>
+      <button type="submit">Subir producto</button>
+    </form>
+  </div>
+
+  <script type="module" src="./product-creation/index.js"></script>
+
+</body>
+</html>
