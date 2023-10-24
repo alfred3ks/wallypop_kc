@@ -21,7 +21,7 @@ const validateForm = async (e, signup) => {
 
       dispatchEvent('createrUser', {
         type: 'success',
-        message: 'Usuario creado.'
+        message: 'Usuario registrado.'
       },
         signup
       );

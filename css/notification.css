@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+.notification p {
+  font-size: 2.4rem;
+}
+
 .notification.success {
   background-color: rgb(49, 211, 49);
 }
