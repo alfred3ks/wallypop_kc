@@ -16,6 +16,7 @@ const validateForm = async (e, signup) => {
 
   try {
     if (isFormatValid(email, password, passwordConfirmation)) {
+      dispatchEvent('startSignup', null, signup);
       // We call the model:
       await createrUser(email.value, password.value);
 
@@ -38,6 +39,9 @@ const validateForm = async (e, signup) => {
     },
       signup
     );
+  } finally {
+    // creamos el evento de stop spinner:
+    dispatchEvent('finishSignup', null, signup);
   }
 }
 

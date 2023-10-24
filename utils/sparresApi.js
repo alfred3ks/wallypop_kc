@@ -25,7 +25,7 @@ export const sparrestApi = () => {
     // extraemos el token:
     const token = localStorage.getItem('token');
     try {
-      response = await fetch(url, {
+      const response = await fetch(url, {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json',
@@ -47,10 +47,10 @@ export const sparrestApi = () => {
     }
   };
 
-
   // Método post:
   const post = async (endpoint, body) => {
     const url = `${baseUrl}${endpoint}`;
+
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -58,16 +58,18 @@ export const sparrestApi = () => {
         headers: {
           'Content-type': 'application/json',
         }
-      })
+      });
+
+      const data = await response.json();
       if (!response.ok) {
-        const data = await response.json()
-        throw new Error(data.message)
+        throw new Error(data.message);
       }
-    } catch (error) {
-      if (error.message) {
-        throw error.message
+
+    } catch (err) {
+      if (err.message) {
+        throw err.message;
       } else {
-        throw error;
+        throw err;
       }
     }
   }
@@ -75,7 +77,7 @@ export const sparrestApi = () => {
   // Retornamos los metodos:
   return {
     get: get,
-    delete: remove,
-    post: post
+    post: post,
+    delete: remove
   }
 }
