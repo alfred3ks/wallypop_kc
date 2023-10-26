@@ -19,31 +19,31 @@
   <!-- Aqui cargamos el loader -->
   <div id="loader"></div>
   <div class="container">
-    <h2>Producto</h2>
-    <form id="login">
+    <h2>Ficha de producto</h2>
+    <form id="productCreation">
       <div>
-        <label for="nombre">Nombre: </label>
-        <input type="text" id="nombre" required name="nombre" />
+        <label for="name">Nombre: </label>
+        <input type="text" id="name" required name="name" />
       </div>
       <div>
-        <label for="nombre">Precio: </label>
-        <input type="number" id="precio" required name="precio" />
+        <label for="price">Precio: </label>
+        <input type="number" id="price" required name="price" min="0" />
       </div>
       <div>
-        <label for="tipoProducto">Tipo de producto:</label>
-        <select id="tipoProducto" name="tipoProducto" required>
+        <label for="type">Tipo de producto:</label>
+        <select id="type" name="type" required>
           <option value="" disabled selected>Selecciona una opción</option>
           <option value="compra">Compra</option>
           <option value="venta">Venta</option>
         </select>
       </div>
       <div>
-        <label for="imagen">Selecciona una imagen:</label>
-        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+        <label for="image">Selecciona una imagen:</label>
+        <input type="text" id="image" name="image" minlength="4">
       </div>
       <div>
-        <label for="imagen">Descripción:</label>
-        <textarea name="" id="" cols="30" rows="10" required></textarea>
+        <label for="message">Descripción:</label>
+        <textarea name="message" id="message" cols="30" rows="10" required></textarea>
       </div>
       <button type="submit">Subir producto</button>
     </form>
