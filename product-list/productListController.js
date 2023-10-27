@@ -9,10 +9,9 @@ export const productListController = async (productsList) => {
 
   try {
     // 🎯 Spinner: disparamos un evento antes que se carguen los tweets:
-    // dispatchEvent('startLoadingProducts', null, productsList);
+    dispatchEvent('startLoadingProducts', null, productsList);
     // Aqui se cargan los tweets:
     products = await getProducts();
-    console.log(products);
   } catch (err) {
     // 📌 llamamos la funcion que hemos creado para refactorizar:
     const type = 'error';
@@ -20,9 +19,8 @@ export const productListController = async (productsList) => {
     const event = createCustomEvent(type, message);
     productsList.dispatchEvent(event);
   } finally {
-    // 🎯 Lo tenemos que poner con un finaly porque bien sea que se carguen o fallen aqui matamos el spinner:
     // Aqui generamos el evento de quitar el spinner tras cargar los tweets:
-    // dispatchEvent('finishLoadingProducts', null, productsList);
+    dispatchEvent('finishLoadingProducts', null, productsList);
   }
 
   if (products.length === 0) {
@@ -48,17 +46,14 @@ const createCustomEvent = (type, message) => {
       message: message,
     },
   });
-
   return event;
 };
 
 const renderProducts = (products, productsList) => {
   products.forEach((product) => {
     const productContainer = document.createElement('div');
-
     productContainer.classList.add('product');
     productContainer.innerHTML = buildProduct(product);
-
     productsList.appendChild(productContainer);
   });
 };

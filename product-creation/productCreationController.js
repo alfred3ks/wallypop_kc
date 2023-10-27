@@ -1,5 +1,5 @@
 import { createProduct } from './productCreationModel.js';
-import { dispatchEvent } from '../utils/dispatchEvent.js'
+import { dispatchEvent } from '../utils/dispatchEvent.js';
 
 export const productCreationController = (productCreation) => {
   productCreation.addEventListener('submit', async (e) => {

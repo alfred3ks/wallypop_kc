@@ -1,15 +1,8 @@
 .caption {
-  font-size: 3.5rem;
+  font-size: 1.8rem;
   margin-bottom: 20px;
   text-align: center;
   color: #007bff;
-}
-
-.product-fail {
-  width: 100%;
-  max-width: 1200px;
-  text-align: center;
-  font-size: 1.4rem;
 }
 
 .card-product {
@@ -17,6 +10,7 @@
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
+  padding: 10px 20px;
   margin: 10px;
   transition: transform 0.2s;
 }
@@ -49,6 +43,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+  }
+
+  .caption {
+    font-size: 3rem;
   }
 }
 
