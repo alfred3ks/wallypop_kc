@@ -42,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
     showNotification(e.detail.message, e.detail.type)
   })
 
+  productsList.addEventListener('errorConexion', (e) => {
+    showNotification(e.detail.message, e.detail.type)
+  })
+
   productListController(productsList);
 
   // llamamos controlador de inicio de sesion y registro:

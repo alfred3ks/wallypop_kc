@@ -8,41 +8,39 @@ export const productListController = async (productsList) => {
   let products = [];
 
   try {
-    // 🎯 Spinner: disparamos un evento antes que se carguen los tweets:
     dispatchEvent('startLoadingProducts', null, productsList);
-    // Aqui se cargan los productos:
     products = await getProducts();
+    if (products.length === 0) {
+      productsList.innerHTML = emptyProducts();
+      dispatchEvent(
+        'productsLoaded',
+        {
+          type: 'error',
+          message: 'No hay productos para mostrar.'
+        },
+        productsList);
+    } else {
+      //Llamamos la funcion que renderiza productos:
+      renderProducts(products, productsList);
+      dispatchEvent(
+        'productsLoaded',
+        {
+          type: 'success',
+          message: 'Productos cargados correctamente.'
+        },
+        productsList);
+    }
   } catch (err) {
-    // 📌 llamamos la funcion que hemos creado para refactorizar:
-    const type = 'error';
-    const message = 'Error cargando productos!!!';
-    const event = createCustomEvent(type, message);
-    productsList.dispatchEvent(event);
-  } finally {
-    // Aqui generamos el evento de quitar el spinner tras cargar los tweets:
-    dispatchEvent('finishLoadingProducts', null, productsList);
-  }
-  if (products.length === 0) {
-    console.log('aqui');
-    productsList.innerHTML = emptyProducts();
     dispatchEvent(
-      'productsLoaded',
+      'errorConexion',
       {
         type: 'error',
-        message: 'No hay productos para mostrar.'
+        message: 'Fallo de conexion con BD.'
       },
       productsList);
-  } else {
-    //Llamamos la funcion que renderiza productos:
-    renderProducts(products, productsList);
-    dispatchEvent(
-      'productsLoaded',
-      {
-        type: 'success',
-        message: 'Productos cargados correctamente.'
-      },
-      productsList);
-
+  } finally {
+    // Aqui generamos el evento de quitar el spinner tras cargar los productos:
+    dispatchEvent('finishLoadingProducts', null, productsList);
   }
 };
 
