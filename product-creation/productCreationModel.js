@@ -1,6 +1,6 @@
 // import { sparrestApi } from '../utils/sparresApi.js';
 
-export const createProduct = async (name, price, type, message) => {
+export const createProduct = async (name, price, type, message, image) => {
   // URL API:
   const url = 'http://localhost:8000/api/products';
 

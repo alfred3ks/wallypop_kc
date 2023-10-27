@@ -9,7 +9,9 @@ button {
   font-weight: bold;
 }
 
-button a {
+button a,
+.signOff {
   color: #007bff;
   text-decoration: none;
+  font-size: 1.6rem;
 }

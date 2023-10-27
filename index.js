@@ -1,4 +1,5 @@
 import { notificationsController } from "./notifications/notificationsController.js";
+import { productListController } from "./product-list/productListController.js";
 import { sessionController } from './session/sessionController.js';
 
 // Obtenemos el nodo de botones inicio de sesion y registro:
@@ -16,6 +17,13 @@ session.addEventListener('loginOff', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   // llamamos controlador de inicio de sesion y registro:
   sessionController(session);
+
+  // Llamamos al controlador de cargar productos:
+  const productsList = document.querySelector('#products')
+  productListController(productsList)
+
+
+
 })
 
 // Comprobamos la conexion de internet:
