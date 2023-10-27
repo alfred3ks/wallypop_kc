@@ -38,6 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
     hide();
   });
 
+  productsList.addEventListener('productsLoaded', (e) => {
+    showNotification(e.detail.message, e.detail.type)
+  })
+
   productListController(productsList);
 
   // llamamos controlador de inicio de sesion y registro:

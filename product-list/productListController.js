@@ -22,31 +22,28 @@ export const productListController = async (productsList) => {
     // Aqui generamos el evento de quitar el spinner tras cargar los tweets:
     dispatchEvent('finishLoadingProducts', null, productsList);
   }
-
   if (products.length === 0) {
     console.log('aqui');
     productsList.innerHTML = emptyProducts();
+    dispatchEvent(
+      'productsLoaded',
+      {
+        type: 'error',
+        message: 'No hay productos para mostrar.'
+      },
+      productsList);
   } else {
     //Llamamos la funcion que renderiza productos:
     renderProducts(products, productsList);
+    dispatchEvent(
+      'productsLoaded',
+      {
+        type: 'success',
+        message: 'Productos cargados correctamente.'
+      },
+      productsList);
 
-    // 📌 llamamos la funcion que hemos creado para refactorizar:
-    const type = 'success';
-    const message = 'Productos cargados correctamente!!!';
-    const event = createCustomEvent(type, message);
-    productsList.dispatchEvent(event);
   }
-};
-
-// Creamos una funcion para el evento CustomEvent:
-const createCustomEvent = (type, message) => {
-  const event = new CustomEvent('productsLoaded', {
-    detail: {
-      type: type,
-      message: message,
-    },
-  });
-  return event;
 };
 
 const renderProducts = (products, productsList) => {
