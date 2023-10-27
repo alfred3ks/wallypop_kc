@@ -2,6 +2,7 @@ import { productListController } from "./product-list/productListController.js";
 import { notificationsController } from "./notifications/notificationsController.js";
 import { sessionController } from './session/sessionController.js';
 import { loaderController } from "./loader/loaderController.js";
+import { offLinePage } from "./utils/offLinePage.js";
 
 // Obtenemos el nodo de botones inicio de sesion y registro:
 const session = document.querySelector('#session');
@@ -44,10 +45,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-// Comprobamos la conexion de internet:
-window.addEventListener('offline', () => {
-  // Llamamos la notificacion:
-  const message = 'No hay conexión a internet.';
-  const type = 'error';
-  showNotification(message, type);
-});
+// Llamamos la funcion que dispara la notificacion cuando no hay conexion a internet
+offLinePage(showNotification);

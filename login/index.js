@@ -2,12 +2,15 @@
 import { loginController } from './loginController.js';
 import { loaderController } from '../loader/loaderController.js';
 import { notificationsController } from "../notifications/notificationsController.js";
+import { offLinePage } from "../utils/offLinePage.js";
+
+const notifications = document.querySelector('#notifications');
+const showNotification = notificationsController(notifications);
 
 document.addEventListener('DOMContentLoaded', () => {
   // obtenemos los nodos:
   const loginForm = document.querySelector('#login');
   const loader = document.getElementById('loader');
-  const notifications = document.querySelector('#notifications');
 
   // ejecutamos el controlador del loaderController:
   const { show, hide } = loaderController(loader);
@@ -20,8 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     hide();
   });
 
-
-  const showNotification = notificationsController(notifications);
   loginForm.addEventListener('loginUser', (e) => {
     showNotification(e.detail.message, e.detail.type)
   })
@@ -29,3 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ejecutamos el controlador:
   loginController(loginForm);
 });
+
+// Llamamos la funcion que dispara la notificacion cuando no hay conexion a internet
+offLinePage(showNotification);
