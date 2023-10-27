@@ -15,11 +15,12 @@ const transformProducts = (products) => {
   return products.map((product) => {
     return {
       id: product.id,
+      name: product.name.charAt(0).toUpperCase() + product.name.slice(1),
       image: product.image,
       username: product.user.username,
-      message: product.message,
+      message: product.message.charAt(0).toUpperCase() + product.message.slice(1),
       price: product.price,
-      type: product.type,
+      type: product.type.charAt(0).toUpperCase() + product.type.slice(1),
       date: new Date().toISOString(),
     };
   });

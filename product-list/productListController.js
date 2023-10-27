@@ -10,7 +10,7 @@ export const productListController = async (productsList) => {
   try {
     // 🎯 Spinner: disparamos un evento antes que se carguen los tweets:
     dispatchEvent('startLoadingProducts', null, productsList);
-    // Aqui se cargan los tweets:
+    // Aqui se cargan los productos:
     products = await getProducts();
   } catch (err) {
     // 📌 llamamos la funcion que hemos creado para refactorizar:

@@ -12,22 +12,21 @@ export const sessionController = (nav) => {
     nav.innerHTML = buildAuthenticatedSession();
     const logoutButton = nav.querySelector('#signOff');
     logoutButton.addEventListener('click', () => {
-      localStorage.removeItem('token');
-      sessionController(nav);
-
-      // Disparamos notificaciones
-      dispatchEvent('loginOff', {
-        type: 'success',
-        message: 'Adios.'
-      },
-        nav
-      );
-
+      if (confirm('¿Seguro que deseas salir?')) {
+        localStorage.removeItem('token');
+        sessionController(nav);
+        // Disparamos notificaciones
+        dispatchEvent('loginOff', {
+          type: 'success',
+          message: 'Hasta luego, vuelve pronto.'
+        },
+          nav
+        );
+      }
     });
   } else {
     // consumo la vista:
     nav.innerHTML = buildUnauthorizedSession();
-    // Notificacion al salir de adios:
   }
 };
 

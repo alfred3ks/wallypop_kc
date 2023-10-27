@@ -1,9 +1,14 @@
 import { productCreationController } from "./productCreationController.js";
 import { notificationsController } from '../notifications/notificationsController.js';
+import { offLinePage } from "../utils/offLinePage.js";
+import { loaderController } from '../loader/loaderController.js';
 
 const notifications = document.querySelector('#notifications');
-
 const showNotification = notificationsController(notifications);
+const loader = document.querySelector('#loader');
+
+// 🎈 RULETA DE CARGA:
+const { show, hide } = loaderController(loader);
 
 document.addEventListener('DOMContentLoaded', () => {
   const productCreation = document.querySelector('#productCreation');
@@ -14,14 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
     showNotification(message, type);
   })
 
+  // 🎈 RULETA DE CARGA:
+  productCreation.addEventListener('startUpProduct', () => {
+    show();
+  });
+  productCreation.addEventListener('finishUpProduct', () => {
+    hide();
+  });
+
+
+
   // llamamos al controlador
   productCreationController(productCreation);
 })
 
-// Comprobamos la conexion de internet:
-window.addEventListener('offline', () => {
-  // Llamamos la notificacion:
-  const message = 'No hay conexión a internet.';
-  const type = 'error';
-  showNotification(message, type);
-});
+// Llamamos la funcion que dispara la notificacion cuando no hay conexion a internet
+offLinePage(showNotification);

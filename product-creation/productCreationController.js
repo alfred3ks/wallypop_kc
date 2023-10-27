@@ -12,6 +12,7 @@ export const productCreationController = (productCreation) => {
     const image = formData.get('image');
 
     try {
+      dispatchEvent('startUpProduct', null, productCreation);
       await createProduct(name, price, type, message, image);
       // evento custom:
       dispatchEvent(
@@ -22,6 +23,7 @@ export const productCreationController = (productCreation) => {
         },
         productCreation);
       setTimeout(() => {
+        dispatchEvent('finishUpProduct', null, productCreation);
         // hacemos redireccion:
         window.location = '/';
       }, 1500)
@@ -34,5 +36,6 @@ export const productCreationController = (productCreation) => {
         },
         productCreation);
     }
+
   });
 };
