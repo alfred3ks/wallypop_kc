@@ -31,7 +31,6 @@ const handleDeleteProduct = (product, productDetail, cardProduct) => {
     if (userId === product.userId) {
       // Habilito el boton: Solo si el usuario es el mismo que creo ese producto:
       deleteProductButton(product, productDetail, cardProduct);
-
     }
   }
 }
@@ -50,7 +49,6 @@ const deleteProductButton = (product, productDetail, cardProduct) => {
       setTimeout(() => {
         window.location = '/';
       }, 1000);
-
     }
   })
   // Metemos el boton debajo de todo:

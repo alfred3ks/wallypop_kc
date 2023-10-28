@@ -10,7 +10,7 @@ const showNotification = notificationsController(notifications);
 document.addEventListener('DOMContentLoaded', () => {
   // obtenemos los nodos:
   const loginForm = document.querySelector('#login');
-  const loader = document.getElementById('loader');
+  const loader = document.querySelector('#loader');
 
   // ejecutamos el controlador del loaderController:
   const { show, hide } = loaderController(loader);

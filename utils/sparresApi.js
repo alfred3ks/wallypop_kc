@@ -50,7 +50,6 @@ export const sparrestApi = () => {
   // Método post:
   const post = async (endpoint, body) => {
     const url = `${baseUrl}${endpoint}`;
-
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -59,12 +58,10 @@ export const sparrestApi = () => {
           'Content-type': 'application/json',
         }
       });
-
       const data = await response.json();
       if (!response.ok) {
         throw new Error(data.message);
       }
-
     } catch (err) {
       if (err.message) {
         throw err.message;

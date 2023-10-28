@@ -26,7 +26,6 @@ const validateForm = async (e, signup) => {
       },
         signup
       );
-
       // redirection:
       setTimeout(() => {
         window.location = './login.html';

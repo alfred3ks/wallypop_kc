@@ -1,4 +1,3 @@
-// Opcion del profesor:
 export const buildProduct = (product) => {
   let template = `
   <div class="card-product" id="card-product">

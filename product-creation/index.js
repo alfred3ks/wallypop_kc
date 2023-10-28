@@ -7,19 +7,18 @@ const notifications = document.querySelector('#notifications');
 const showNotification = notificationsController(notifications);
 const loader = document.querySelector('#loader');
 
-// 🎈 RULETA DE CARGA:
+//RULETA DE CARGA:
 const { show, hide } = loaderController(loader);
 
 document.addEventListener('DOMContentLoaded', () => {
   const productCreation = document.querySelector('#productCreation');
-
   productCreation.addEventListener('productCreated', (e) => {
     const message = e.detail.message;
     const type = e.detail.type;
     showNotification(message, type);
   })
 
-  // 🎈 RULETA DE CARGA:
+  //RULETA DE CARGA:
   productCreation.addEventListener('startUpProduct', () => {
     show();
   });

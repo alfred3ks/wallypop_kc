@@ -12,14 +12,12 @@ export const loginController = (loginForm) => {
 const submitLogin = async (loginForm) => {
   // obtener datos del form:
   const { email, password } = getLoginData(loginForm);
-
   try {
     // login contra sparest: Modelo: Aqui disparamos la peticion:
     // Creamos el evento del spinner start
     dispatchEvent('startLoginUser', null, loginForm);
     const jwt = await loginUser(email, password);
     localStorage.setItem('token', jwt);
-
     // Disparamos notificaciones
     dispatchEvent('loginUser', {
       type: 'success',
@@ -31,7 +29,6 @@ const submitLogin = async (loginForm) => {
     setTimeout(() => {
       window.location = './index.html';
     }, 2000)
-
   } catch (error) {
     // gestionar la respuesta:
     // alert(error);

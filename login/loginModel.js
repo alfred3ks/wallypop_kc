@@ -1,16 +1,11 @@
-import { sparrestApi } from "../utils/sparresApi.js";
-
 export const loginUser = async (email, password) => {
   // Atacamos la url de login:
   const url = 'http://localhost:8000/auth/login';
-  // const endpoint = 'auth/login';
-  // Nos adaptamos al modelo de la API:
   const body = {
     username: email,
     password: password,
   };
 
-  // await sparrestApi().post(endpoint, body);
   try {
     const response = await fetch(url, {
       method: 'POST',
