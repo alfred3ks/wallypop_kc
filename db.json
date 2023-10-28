@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "username": "user1@kc.com",
+      "password": "$2b$10$.yPTYfyIKSVZo3kaQUnZr.8UocB5ZKd/vSmTcrp9sz9AZuP.qvJ5y",
+      "id": 1
+    },
+    {
+      "username": "user2@kc.com",
+      "password": "$2b$10$.yPTYfyIKSVZo3kaQUnZr.L9YF0/AwI0HRWOdmWhqcsrvYjoFiaaa",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "name": "Bicicleta",
+      "price": "350",
+      "type": "venta",
+      "message": "Bici en buen estado, negociable.",
+      "image": "https://upcdn.io/W142iJ1/raw/uploads/2023/10/28/4m4qKgNzJv-bicicleta.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-28T16:05:20.223Z",
+      "id": 1
+    },
+    {
+      "name": "xbox",
+      "price": "330",
+      "type": "venta",
+      "message": "Xbox bien cuidada. Precio no negociable.",
+      "image": "https://upcdn.io/W142iJ1/raw/uploads/2023/10/28/4m4qKP8XKf-xbox.png",
+      "userId": 1,
+      "updatedAt": "2023-10-28T16:06:18.017Z",
+      "id": 2
+    },
+    {
+      "name": "Drone",
+      "price": "270",
+      "type": "venta",
+      "message": "Precio cerrado, esta sin abrir.",
+      "image": "https://upcdn.io/W142iJ1/raw/uploads/2023/10/28/4m4qK6kpDZ-drone.jpg",
+      "userId": 1,
+      "updatedAt": "2023-10-28T16:07:13.175Z",
+      "id": 3
+    },
+    {
+      "name": "Portátil HP",
+      "price": "350",
+      "type": "venta",
+      "message": "Escucho ofertas, equipo en muy buen estado.",
+      "image": "https://upcdn.io/W142iJ1/raw/uploads/2023/10/28/4m4qJcyG5H-portatil.jpg",
+      "userId": 2,
+      "updatedAt": "2023-10-28T16:08:46.496Z",
+      "id": 4
+    },
+    {
+      "name": "Patinete",
+      "price": "180",
+      "type": "venta",
+      "message": "En muy buen estado, se vende porque ya no se usa.",
+      "image": "https://upcdn.io/W142iJ1/raw/uploads/2023/10/28/4m4qJHcoLB-patinete.jpg",
+      "userId": 2,
+      "updatedAt": "2023-10-28T16:09:51.931Z",
+      "id": 5
+    },
+    {
+      "name": "Monitor Acer",
+      "price": "120",
+      "type": "venta",
+      "message": "Monitor Acer que este en buen estado. Precio cerrado.",
+      "image": "https://upcdn.io/W142iJ1/raw/uploads/2023/10/28/4m4qHPiSDQ-monitor.jpg",
+      "userId": 2,
+      "updatedAt": "2023-10-28T16:12:46.228Z",
+      "id": 6
+    }
+  ]
+}
