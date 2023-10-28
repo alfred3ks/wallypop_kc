@@ -4,6 +4,8 @@ export const createProduct = async (name, price, type, message, image) => {
   // URL API:
   const url = 'http://localhost:8000/api/products';
 
+  const imageUrl = await uploadImage(image);
+
   // extraemos el token:
   const token = localStorage.getItem('token');
 
@@ -12,8 +14,11 @@ export const createProduct = async (name, price, type, message, image) => {
     price: price,
     type: type,
     message: message,
-    image: image,
   };
+
+  if (imageUrl) {
+    body.image = imageUrl;
+  }
 
   let response;
 
@@ -41,3 +46,17 @@ export const createProduct = async (name, price, type, message, image) => {
   }
 };
 
+
+const uploadImage = async (image) => {
+  let imageUrl;
+  try {
+    const uploadManager = new Bytescale.UploadManager({
+      apiKey: "public_W142iJ17P8vqS3z4TmoLKvPpS6om"
+    });
+    const { fileUrl } = await uploadManager.upload({ data: image });
+    imageUrl = fileUrl;
+  } catch (error) {
+    imageUrl = null;
+  }
+  return imageUrl;
+}

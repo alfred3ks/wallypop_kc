@@ -27,8 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     hide();
   });
 
-
-
   // llamamos al controlador
   productCreationController(productCreation);
 })

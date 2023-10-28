@@ -9,11 +9,11 @@ export const productCreationController = (productCreation) => {
     const price = formData.get('price');
     const type = formData.get('type');
     const message = formData.get('message');
-    const image = formData.get('image');
+    const fileInput = productCreation.querySelector('#image');
 
     try {
       dispatchEvent('startUpProduct', null, productCreation);
-      await createProduct(name, price, type, message, image);
+      await createProduct(name, price, type, message, fileInput.files[0]);
       // evento custom:
       dispatchEvent(
         'productCreated',
@@ -36,6 +36,5 @@ export const productCreationController = (productCreation) => {
         },
         productCreation);
     }
-
   });
 };
