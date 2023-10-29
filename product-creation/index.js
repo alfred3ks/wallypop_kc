@@ -3,6 +3,12 @@ import { notificationsController } from '../notifications/notificationsControlle
 import { offLinePage } from "../utils/offLinePage.js";
 import { loaderController } from '../loader/loaderController.js';
 
+// Segurizamos la ruta:
+const token = localStorage.getItem('token');
+if (!token) {
+  window.location = '/';
+}
+
 const notifications = document.querySelector('#notifications');
 const showNotification = notificationsController(notifications);
 const loader = document.querySelector('#loader');
